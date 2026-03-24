@@ -315,33 +315,9 @@ action="https://script.google.com/macros/s/AKfycbzjACREYNAtHTTKuPlx3vEMtxOFBY7lN
 
 <div class="form-group">
 <label>Site Location</label>
-
-<select id="siteDropdown" required>
-<option value="">Select Site</option>
-<option value="Alum Rock">Alum Rock</option>
-<option value="Birmingham">Birmingham</option>
-<option value="Brownhills">Brownhills</option>
-<option value="Burntwood">Burntwood</option>
-<option value="Cannock">Cannock</option>
-<option value="Derby">Derby</option>
-<option value="Kingstanding">Kingstanding</option>
-<option value="London">London</option>
-<option value="Telford">Telford</option>
-<option value="Wales">Wales</option>
-<option value="Walsall">Walsall</option>
-<option value="Walsall Wood">Walsall Wood</option>
-<option value="West Brom">West Brom</option>
-<option value="Other">Other Site</option>
+<select id="siteDropdown" name="siteLocation" required>
+<option value="MPTT" selected>MPTT</option>
 </select>
-
-<input type="hidden" name="siteLocation" id="siteLocation">
-
-<input
-type="text"
-id="customSite"
-placeholder="Enter new site"
-style="display:none; margin-top:10px;"
->
 </div>
 
 <div class="form-group">
@@ -762,23 +738,6 @@ const checkItems = document.querySelectorAll(".check-item");
 const progressText = document.getElementById("progressText");
 const progressFill = document.getElementById("progressFill");
 const siteDropdown = document.getElementById("siteDropdown");
-const siteLocation = document.getElementById("siteLocation");
-const customSite = document.getElementById("customSite");
-
-function handleSiteChange() {
-  if (siteDropdown.value === "Other") {
-    customSite.style.display = "block";
-    customSite.required = true;
-    siteLocation.value = "";
-  } else {
-    customSite.style.display = "none";
-    customSite.required = false;
-    customSite.value = "";
-    siteLocation.value = siteDropdown.value;
-  }
-}
-
-siteDropdown.addEventListener("change", handleSiteChange);
 
 plantType.addEventListener("change", function () {
   const selectedPlant = this.value;
@@ -856,17 +815,6 @@ form.addEventListener("submit", async function (e) {
     return;
   }
 
-  if (siteDropdown.value === "Other") {
-    if (customSite.value.trim() === "") {
-      alert("⚠ Please enter the site name.");
-      customSite.focus();
-      return;
-    }
-    siteLocation.value = customSite.value.trim();
-  } else {
-    siteLocation.value = siteDropdown.value;
-  }
-
   const visibleChecks = Array.from(document.querySelectorAll(".check-item:not(.hidden-check) input[type='hidden']"));
   const hasUnanswered = visibleChecks.some(input => input.value.trim() === "");
   const hasDefect = visibleChecks.some(input => input.value === "Defect");
@@ -931,11 +879,7 @@ form.addEventListener("submit", async function (e) {
 
       document.documentElement.style.setProperty("--bgImage",'url("excavator.jpg")');
 
-      siteDropdown.value = "";
-      siteLocation.value = "";
-      customSite.value = "";
-      customSite.style.display = "none";
-      customSite.required = false;
+      siteDropdown.value = "MPTT";
 
       submitBtn.disabled = false;
       submitBtn.textContent = "Complete Inspection";
@@ -951,7 +895,6 @@ form.addEventListener("submit", async function (e) {
   }
 });
 
-handleSiteChange();
 updateProgress();
 </script>
 
