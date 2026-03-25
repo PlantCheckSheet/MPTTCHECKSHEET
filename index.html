@@ -828,7 +828,8 @@ form.addEventListener("submit", async function (e) {
     return;
   }
 
-  const visibleChecks = Array.from(document.querySelectorAll(".check-item:not(.hidden-check) input[type='hidden']"));
+  const visibleCheckItems = Array.from(document.querySelectorAll(".check-item:not(.hidden-check)"));
+  const visibleChecks = visibleCheckItems.map(item => item.querySelector("input[type='hidden']"));
   const hasUnanswered = visibleChecks.some(input => input.value.trim() === "");
   const hasDefect = visibleChecks.some(input => input.value === "Defect");
   const notes = document.getElementById("defectNotes").value.trim();
@@ -858,17 +859,35 @@ form.addEventListener("submit", async function (e) {
   submitBtn.textContent = "Completing Inspection...";
 
   try {
-    const formData = new FormData(form);
+    const formData = new FormData();
+
+    formData.append("operator", form.querySelector('[name="operator"]').value);
+    formData.append("site", form.querySelector('[name="siteLocation"]').value);
+    formData.append("plantType", form.querySelector('[name="plantType"]').value);
+    formData.append("machineId", form.querySelector('[name="machineID"]').value);
+    formData.append("notes", form.querySelector('[name="defectNotes"]').value);
+
+    const checks = visibleCheckItems.map(item => {
+      const checkName = item.querySelector("div").textContent.trim();
+      const result = item.querySelector('input[type="hidden"]').value.trim();
+
+      return {
+        checkName,
+        result
+      };
+    });
+
+    formData.append("checks", JSON.stringify(checks));
 
     const response = await fetch(form.action, {
       method: "POST",
       body: formData
     });
 
-    const text = await response.text();
+    const result = await response.json();
 
-    if (!response.ok || text.toLowerCase().includes("error")) {
-      throw new Error(text);
+    if (result.result !== "success") {
+      throw new Error(result.message || "Submission failed");
     }
 
     popup.style.display = "block";
@@ -898,7 +917,6 @@ form.addEventListener("submit", async function (e) {
       submitBtn.textContent = "Complete Inspection";
 
       updateProgress();
-
     }, 1800);
 
   } catch (error) {
@@ -910,6 +928,5 @@ form.addEventListener("submit", async function (e) {
 
 updateProgress();
 </script>
-
 </body>
 </html>
