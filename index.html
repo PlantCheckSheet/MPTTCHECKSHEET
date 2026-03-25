@@ -314,7 +314,7 @@ padding:0 16px 24px;
 <form
 id="inspectionForm"
 method="POST"
-action="https://script.google.com/macros/s/AKfycbyZY9H9VrTaEK4Jl5ayw-E74Q3VGNFxZWt331pcoeYg80ndsyq74uigLFtk_Ed5TZ8/exec"
+action="https://script.google.com/macros/s/AKfycbwkBWURBm9FS-EuqS0L-yHG7PsY7kfgt8EoLjEXbVceDwbS-0s72aIPkxTwy1o0eySB/exec"
 >
 
 <div class="card">
@@ -371,7 +371,6 @@ action="https://script.google.com/macros/s/AKfycbyZY9H9VrTaEK4Jl5ayw-E74Q3VGNFxZ
 
 <div class="check-list">
 
-<!-- COMMON CHECKS FOR LARGE PLANT -->
 <div class="check-item hidden-check" data-plants="Excavator,Dumper,Roller,Telehandler,ADT,Shovel Loader,Mobile Crane,Generator,MEWP">
 <div>Fluid Leaks</div>
 <div class="btn-group">
@@ -426,7 +425,6 @@ action="https://script.google.com/macros/s/AKfycbyZY9H9VrTaEK4Jl5ayw-E74Q3VGNFxZ
 </div>
 </div>
 
-<!-- HYDRAULIC LARGE PLANT -->
 <div class="check-item hidden-check" data-plants="Excavator,Telehandler,Shovel Loader,Mobile Crane">
 <div>Hydraulic Hoses</div>
 <div class="btn-group">
@@ -436,7 +434,6 @@ action="https://script.google.com/macros/s/AKfycbyZY9H9VrTaEK4Jl5ayw-E74Q3VGNFxZ
 </div>
 </div>
 
-<!-- TRACKS / TYRES -->
 <div class="check-item hidden-check" data-plants="Excavator,Dumper,Roller,Telehandler,ADT,Shovel Loader">
 <div>Tracks / Tyres</div>
 <div class="btn-group">
@@ -446,7 +443,6 @@ action="https://script.google.com/macros/s/AKfycbyZY9H9VrTaEK4Jl5ayw-E74Q3VGNFxZ
 </div>
 </div>
 
-<!-- EXCAVATOR -->
 <div class="check-item hidden-check" data-plants="Excavator">
 <div>Boom / Dipper / Bucket</div>
 <div class="btn-group">
@@ -456,7 +452,6 @@ action="https://script.google.com/macros/s/AKfycbyZY9H9VrTaEK4Jl5ayw-E74Q3VGNFxZ
 </div>
 </div>
 
-<!-- DUMPER / ADT -->
 <div class="check-item hidden-check" data-plants="Dumper,ADT">
 <div>Body / Skip Condition</div>
 <div class="btn-group">
@@ -466,7 +461,6 @@ action="https://script.google.com/macros/s/AKfycbyZY9H9VrTaEK4Jl5ayw-E74Q3VGNFxZ
 </div>
 </div>
 
-<!-- ROLLER -->
 <div class="check-item hidden-check" data-plants="Roller">
 <div>Drum Condition</div>
 <div class="btn-group">
@@ -485,7 +479,6 @@ action="https://script.google.com/macros/s/AKfycbyZY9H9VrTaEK4Jl5ayw-E74Q3VGNFxZ
 </div>
 </div>
 
-<!-- TELEHANDLER -->
 <div class="check-item hidden-check" data-plants="Telehandler">
 <div>Forks / Carriage</div>
 <div class="btn-group">
@@ -495,7 +488,6 @@ action="https://script.google.com/macros/s/AKfycbyZY9H9VrTaEK4Jl5ayw-E74Q3VGNFxZ
 </div>
 </div>
 
-<!-- SHOVEL LOADER -->
 <div class="check-item hidden-check" data-plants="Shovel Loader">
 <div>Bucket / Linkage</div>
 <div class="btn-group">
@@ -505,7 +497,6 @@ action="https://script.google.com/macros/s/AKfycbyZY9H9VrTaEK4Jl5ayw-E74Q3VGNFxZ
 </div>
 </div>
 
-<!-- MOBILE CRANE -->
 <div class="check-item hidden-check" data-plants="Mobile Crane">
 <div>Hook / Chains / Lifting Gear</div>
 <div class="btn-group">
@@ -524,7 +515,6 @@ action="https://script.google.com/macros/s/AKfycbyZY9H9VrTaEK4Jl5ayw-E74Q3VGNFxZ
 </div>
 </div>
 
-<!-- PETROL CUT OFF SAW -->
 <div class="check-item hidden-check" data-plants="Petrol Cut Off Saw">
 <div>Blade Condition</div>
 <div class="btn-group">
@@ -570,7 +560,6 @@ action="https://script.google.com/macros/s/AKfycbyZY9H9VrTaEK4Jl5ayw-E74Q3VGNFxZ
 </div>
 </div>
 
-<!-- GENERATOR -->
 <div class="check-item hidden-check" data-plants="Generator">
 <div>Fuel Level / Fuel Leaks</div>
 <div class="btn-group">
@@ -607,7 +596,6 @@ action="https://script.google.com/macros/s/AKfycbyZY9H9VrTaEK4Jl5ayw-E74Q3VGNFxZ
 </div>
 </div>
 
-<!-- CAT & GENNY -->
 <div class="check-item hidden-check" data-plants="CAT & Genny">
 <div>Transmitter Condition</div>
 <div class="btn-group">
@@ -653,7 +641,6 @@ action="https://script.google.com/macros/s/AKfycbyZY9H9VrTaEK4Jl5ayw-E74Q3VGNFxZ
 </div>
 </div>
 
-<!-- MEWP -->
 <div class="check-item hidden-check" data-plants="MEWP">
 <div>Tyres / Wheels</div>
 <div class="btn-group">
@@ -884,7 +871,14 @@ form.addEventListener("submit", async function (e) {
       body: formData
     });
 
-    const result = await response.json();
+    const text = await response.text();
+
+    let result;
+    try {
+      result = JSON.parse(text);
+    } catch (err) {
+      throw new Error(text);
+    }
 
     if (result.result !== "success") {
       throw new Error(result.message || "Submission failed");
