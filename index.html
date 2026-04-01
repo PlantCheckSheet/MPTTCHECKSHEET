@@ -173,6 +173,12 @@ border:1px solid #ccc;
 font-size:15px;
 }
 
+select:disabled{
+background:#f1f5f9;
+color:#64748b;
+cursor:not-allowed;
+}
+
 textarea{
 min-height:120px;
 }
@@ -323,7 +329,16 @@ action="https://script.google.com/macros/s/AKfycbwkBWURBm9FS-EuqS0L-yHG7PsY7kfgt
 <div class="form-grid">
 <div class="form-group">
 <label>Operator Name</label>
-<input name="operator" required>
+<select id="operatorSelect" name="operator" required>
+<option value="">Select Operator</option>
+<option value="Christian Evans">Christian Evans</option>
+<option value="Guy Millichip">Guy Millichip</option>
+<option value="Matthew Brady">Matthew Brady</option>
+<option value="Colin Ecclestone">Colin Ecclestone</option>
+<option value="Craig Harvey">Craig Harvey</option>
+<option value="Stuart Evans">Stuart Evans</option>
+<option value="Mark Ford">Mark Ford</option>
+</select>
 </div>
 
 <div class="form-group">
@@ -335,19 +350,8 @@ action="https://script.google.com/macros/s/AKfycbwkBWURBm9FS-EuqS0L-yHG7PsY7kfgt
 
 <div class="form-group">
 <label>Plant Type</label>
-<select id="plantType" name="plantType" required>
-<option value="">Select Plant</option>
-<option value="Excavator">Excavator</option>
-<option value="Dumper">Dumper</option>
-<option value="Roller">Roller</option>
-<option value="Telehandler">Telehandler</option>
-<option value="ADT">ADT</option>
-<option value="Shovel Loader">Shovel Loader</option>
-<option value="Mobile Crane">Mobile Crane</option>
-<option value="Petrol Cut Off Saw">Petrol Cut Off Saw</option>
-<option value="Generator">Generator</option>
-<option value="CAT & Genny">CAT & Genny</option>
-<option value="MEWP">MEWP</option>
+<select id="plantType" name="plantType" required disabled>
+<option value="">Select Operator First</option>
 </select>
 </div>
 
@@ -371,7 +375,7 @@ action="https://script.google.com/macros/s/AKfycbwkBWURBm9FS-EuqS0L-yHG7PsY7kfgt
 
 <div class="check-list">
 
-<div class="check-item hidden-check" data-plants="Excavator,Dumper,Roller,Telehandler,ADT,Shovel Loader,Mobile Crane,Generator,MEWP">
+<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Dumper,Roller,Telehandler,ADT,Loading Shovel,Mobile Crane,Generator,MEWP">
 <div>Fluid Leaks</div>
 <div class="btn-group">
 <button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
@@ -380,7 +384,7 @@ action="https://script.google.com/macros/s/AKfycbwkBWURBm9FS-EuqS0L-yHG7PsY7kfgt
 </div>
 </div>
 
-<div class="check-item hidden-check" data-plants="Excavator,Dumper,Roller,Telehandler,ADT,Shovel Loader,Mobile Crane,Generator">
+<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Dumper,Roller,Telehandler,ADT,Loading Shovel,Mobile Crane,Generator">
 <div>Engine Oil</div>
 <div class="btn-group">
 <button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
@@ -389,7 +393,7 @@ action="https://script.google.com/macros/s/AKfycbwkBWURBm9FS-EuqS0L-yHG7PsY7kfgt
 </div>
 </div>
 
-<div class="check-item hidden-check" data-plants="Excavator,Dumper,Roller,Telehandler,ADT,Shovel Loader,Mobile Crane">
+<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Dumper,Roller,Telehandler,ADT,Loading Shovel,Mobile Crane">
 <div>Coolant</div>
 <div class="btn-group">
 <button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
@@ -398,7 +402,7 @@ action="https://script.google.com/macros/s/AKfycbwkBWURBm9FS-EuqS0L-yHG7PsY7kfgt
 </div>
 </div>
 
-<div class="check-item hidden-check" data-plants="Excavator,Dumper,Roller,Telehandler,ADT,Shovel Loader,Mobile Crane,MEWP">
+<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Dumper,Roller,Telehandler,ADT,Loading Shovel,Mobile Crane,MEWP">
 <div>Lights</div>
 <div class="btn-group">
 <button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
@@ -407,7 +411,7 @@ action="https://script.google.com/macros/s/AKfycbwkBWURBm9FS-EuqS0L-yHG7PsY7kfgt
 </div>
 </div>
 
-<div class="check-item hidden-check" data-plants="Excavator,Dumper,Roller,Telehandler,ADT,Shovel Loader,Mobile Crane,MEWP">
+<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Dumper,Roller,Telehandler,ADT,Loading Shovel,Mobile Crane,MEWP">
 <div>Horn / Alarm</div>
 <div class="btn-group">
 <button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
@@ -416,7 +420,7 @@ action="https://script.google.com/macros/s/AKfycbwkBWURBm9FS-EuqS0L-yHG7PsY7kfgt
 </div>
 </div>
 
-<div class="check-item hidden-check" data-plants="Excavator,Dumper,Roller,Telehandler,ADT,Shovel Loader,Mobile Crane,Generator,MEWP">
+<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Dumper,Roller,Telehandler,ADT,Loading Shovel,Mobile Crane,Generator,MEWP">
 <div>Controls</div>
 <div class="btn-group">
 <button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
@@ -425,7 +429,7 @@ action="https://script.google.com/macros/s/AKfycbwkBWURBm9FS-EuqS0L-yHG7PsY7kfgt
 </div>
 </div>
 
-<div class="check-item hidden-check" data-plants="Excavator,Telehandler,Shovel Loader,Mobile Crane">
+<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Telehandler,Loading Shovel,Mobile Crane">
 <div>Hydraulic Hoses</div>
 <div class="btn-group">
 <button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
@@ -434,7 +438,7 @@ action="https://script.google.com/macros/s/AKfycbwkBWURBm9FS-EuqS0L-yHG7PsY7kfgt
 </div>
 </div>
 
-<div class="check-item hidden-check" data-plants="Excavator,Dumper,Roller,Telehandler,ADT,Shovel Loader">
+<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Dumper,Roller,Telehandler,ADT,Loading Shovel">
 <div>Tracks / Tyres</div>
 <div class="btn-group">
 <button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
@@ -443,7 +447,7 @@ action="https://script.google.com/macros/s/AKfycbwkBWURBm9FS-EuqS0L-yHG7PsY7kfgt
 </div>
 </div>
 
-<div class="check-item hidden-check" data-plants="Excavator">
+<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02">
 <div>Boom / Dipper / Bucket</div>
 <div class="btn-group">
 <button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
@@ -488,7 +492,7 @@ action="https://script.google.com/macros/s/AKfycbwkBWURBm9FS-EuqS0L-yHG7PsY7kfgt
 </div>
 </div>
 
-<div class="check-item hidden-check" data-plants="Shovel Loader">
+<div class="check-item hidden-check" data-plants="Loading Shovel">
 <div>Bucket / Linkage</div>
 <div class="btn-group">
 <button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
@@ -716,20 +720,33 @@ Inspection Submitted Successfully ✔
 </div>
 
 <script>
-const plantImages = {
-  Excavator:"excavator.jpg",
-  Dumper:"dumper.jpg",
-  Roller:"roller.jpg",
-  Telehandler:"telehandler.jpg",
-  ADT:"adt.jpg",
-  "Shovel Loader":"shovel-loader.jpg",
-  "Mobile Crane":"mobile-crane.jpg",
-  "Petrol Cut Off Saw":"petrol-cut-off-saw.jpg",
-  "Generator":"generator.jpg",
-  "CAT & Genny":"cat-genny.jpg",
-  "MEWP":"mewp.jpg"
+const operatorPlantMap = {
+  "Christian Evans": ["Dumper", "Roller"],
+  "Guy Millichip": ["Mobile Crane"],
+  "Matthew Brady": ["Mini Digger"],
+  "Colin Ecclestone": ["Loading Shovel", "ADT"],
+  "Craig Harvey": ["Hitachi 01"],
+  "Stuart Evans": ["Hitachi 02"],
+  "Mark Ford": ["Telehandler"]
 };
 
+const plantImages = {
+  "Mini Digger": "excavator.jpg",
+  "Hitachi 01": "excavator.jpg",
+  "Hitachi 02": "excavator.jpg",
+  "Dumper": "dumper.jpg",
+  "Roller": "roller.jpg",
+  "Telehandler": "telehandler.jpg",
+  "ADT": "adt.jpg",
+  "Loading Shovel": "shovel-loader.jpg",
+  "Mobile Crane": "mobile-crane.jpg",
+  "Petrol Cut Off Saw": "petrol-cut-off-saw.jpg",
+  "Generator": "generator.jpg",
+  "CAT & Genny": "cat-genny.jpg",
+  "MEWP": "mewp.jpg"
+};
+
+const operatorSelect = document.getElementById("operatorSelect");
 const plantType = document.getElementById("plantType");
 const form = document.getElementById("inspectionForm");
 const popup = document.getElementById("successPopup");
@@ -738,6 +755,14 @@ const checkItems = document.querySelectorAll(".check-item");
 const progressText = document.getElementById("progressText");
 const progressFill = document.getElementById("progressFill");
 const siteDropdown = document.getElementById("siteDropdown");
+const defectNotes = document.getElementById("defectNotes");
+
+operatorSelect.addEventListener("change", function () {
+  const selectedOperator = this.value;
+  populatePlantOptions(selectedOperator);
+  resetChecksAndProgress();
+  document.documentElement.style.setProperty("--bgImage",'url("excavator.jpg")');
+});
 
 plantType.addEventListener("change", function () {
   const selectedPlant = this.value;
@@ -746,6 +771,30 @@ plantType.addEventListener("change", function () {
   updateVisibleChecks(selectedPlant);
   updateProgress();
 });
+
+function populatePlantOptions(operatorName) {
+  plantType.innerHTML = "";
+
+  if (!operatorName || !operatorPlantMap[operatorName]) {
+    plantType.disabled = true;
+    plantType.innerHTML = '<option value="">Select Operator First</option>';
+    return;
+  }
+
+  plantType.disabled = false;
+
+  const defaultOption = document.createElement("option");
+  defaultOption.value = "";
+  defaultOption.textContent = "Select Plant";
+  plantType.appendChild(defaultOption);
+
+  operatorPlantMap[operatorName].forEach(plant => {
+    const option = document.createElement("option");
+    option.value = plant;
+    option.textContent = plant;
+    plantType.appendChild(option);
+  });
+}
 
 function updateVisibleChecks(selectedPlant) {
   checkItems.forEach(item => {
@@ -768,6 +817,27 @@ function updateVisibleChecks(selectedPlant) {
       });
     }
   });
+}
+
+function resetChecksAndProgress() {
+  checkItems.forEach(item => {
+    item.classList.add("hidden-check");
+    item.classList.remove("defect-selected");
+
+    const hiddenInput = item.querySelector("input[type='hidden']");
+    const buttons = item.querySelectorAll("button");
+
+    if (hiddenInput) {
+      hiddenInput.value = "";
+    }
+
+    buttons.forEach(btn => {
+      btn.style.opacity = 1;
+    });
+  });
+
+  defectNotes.value = "";
+  updateProgress();
 }
 
 function updateProgress() {
@@ -810,8 +880,18 @@ function setCheck(btn, value) {
 form.addEventListener("submit", async function (e) {
   e.preventDefault();
 
+  if (operatorSelect.value === "") {
+    alert("⚠ Please select an operator before submitting.");
+    return;
+  }
+
   if (siteDropdown.value === "") {
     alert("⚠ Please select a site before submitting.");
+    return;
+  }
+
+  if (plantType.value === "") {
+    alert("⚠ Please select a plant type before submitting.");
     return;
   }
 
@@ -819,12 +899,7 @@ form.addEventListener("submit", async function (e) {
   const visibleChecks = visibleCheckItems.map(item => item.querySelector("input[type='hidden']"));
   const hasUnanswered = visibleChecks.some(input => input.value.trim() === "");
   const hasDefect = visibleChecks.some(input => input.value === "Defect");
-  const notes = document.getElementById("defectNotes").value.trim();
-
-  if (plantType.value === "") {
-    alert("⚠ Please select a plant type before submitting.");
-    return;
-  }
+  const notes = defectNotes.value.trim();
 
   if (visibleChecks.length === 0) {
     alert("⚠ No checks are available for the selected plant.");
@@ -838,7 +913,7 @@ form.addEventListener("submit", async function (e) {
 
   if (hasDefect && notes === "") {
     alert("⚠ Please describe the defect.");
-    document.getElementById("defectNotes").focus();
+    defectNotes.focus();
     return;
   }
 
@@ -890,6 +965,9 @@ form.addEventListener("submit", async function (e) {
     setTimeout(() => {
       popup.style.display = "none";
       form.reset();
+
+      plantType.disabled = true;
+      plantType.innerHTML = '<option value="">Select Operator First</option>';
 
       document.querySelectorAll(".btn-group button").forEach(b => {
         b.style.opacity = 1;
