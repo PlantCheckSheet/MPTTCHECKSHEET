@@ -183,6 +183,17 @@ textarea{
 min-height:120px;
 }
 
+.static-field{
+width:100%;
+padding:12px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:15px;
+background:#f8fafc;
+color:#334155;
+font-weight:600;
+}
+
 .check-list{
 border:1px solid var(--border);
 border-radius:12px;
@@ -343,9 +354,8 @@ action="https://script.google.com/macros/s/AKfycbwkBWURBm9FS-EuqS0L-yHG7PsY7kfgt
 
 <div class="form-group">
 <label>Site Location</label>
-<select id="siteDropdown" name="siteLocation" required>
-<option value="MPTT" selected>MPTT</option>
-</select>
+<div class="static-field">MPTT</div>
+<input type="hidden" name="siteLocation" value="MPTT">
 </div>
 
 <div class="form-group">
@@ -373,261 +383,7 @@ action="https://script.google.com/macros/s/AKfycbwkBWURBm9FS-EuqS0L-yHG7PsY7kfgt
 </div>
 </div>
 
-<div class="check-list">
-
-<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Dumper,Roller,Telehandler,ADT,Loading Shovel,Mobile Crane,Generator,MEWP">
-<div>Fluid Leaks</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="fluidLeaks">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Dumper,Roller,Telehandler,ADT,Loading Shovel,Mobile Crane,Generator">
-<div>Engine Oil</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="engineOil">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Dumper,Roller,Telehandler,ADT,Loading Shovel,Mobile Crane">
-<div>Coolant</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="coolant">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Dumper,Roller,Telehandler,ADT,Loading Shovel,Mobile Crane,MEWP">
-<div>Lights</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="lights">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Dumper,Roller,Telehandler,ADT,Loading Shovel,Mobile Crane,MEWP">
-<div>Horn / Alarm</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="alarm">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Dumper,Roller,Telehandler,ADT,Loading Shovel,Mobile Crane,Generator,MEWP">
-<div>Controls</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="controls">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Telehandler,Loading Shovel,Mobile Crane">
-<div>Hydraulic Hoses</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="hydraulicHoses">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Dumper,Roller,Telehandler,ADT,Loading Shovel">
-<div>Tracks / Tyres</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="tracks">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02">
-<div>Boom / Dipper / Bucket</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="boomDipperBucket">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Dumper,ADT">
-<div>Body / Skip Condition</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="bodySkipCondition">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Roller">
-<div>Drum Condition</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="drumCondition">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Roller">
-<div>Water Spray System</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="waterSpraySystem">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Telehandler">
-<div>Forks / Carriage</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="forksCarriage">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Loading Shovel">
-<div>Bucket / Linkage</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="bucketLinkage">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Mobile Crane">
-<div>Hook / Chains / Lifting Gear</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="hookChainsLiftingGear">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Mobile Crane">
-<div>Outriggers</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="outriggers">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Generator">
-<div>Fuel Level / Fuel Leaks</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="generatorFuelLeaks">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Generator">
-<div>Sockets / Outlets</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="generatorSockets">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Generator">
-<div>Cables / Leads</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="generatorCables">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Generator">
-<div>Emergency Stop</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="generatorEmergencyStop">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="MEWP">
-<div>Tyres / Wheels</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="mewpTyres">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="MEWP">
-<div>Hydraulic Hoses</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="mewpHydraulicHoses">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="MEWP">
-<div>Guard Rails / Gate</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="mewpGuardRailsGate">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="MEWP">
-<div>Emergency Lowering Controls</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="mewpEmergencyLowering">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="MEWP">
-<div>Platform Controls</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="mewpPlatformControls">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="MEWP">
-<div>Tilt Alarm / Safety Devices</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="mewpTiltAlarm">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Dumper,Roller,Telehandler,ADT,Loading Shovel,Mobile Crane,Generator,MEWP">
-<div>Machines Greased</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="machinesGreased">
-</div>
-</div>
-
-<div class="check-item hidden-check" data-plants="Mini Digger,Hitachi 01,Hitachi 02,Dumper,Roller,Telehandler,ADT,Loading Shovel,Mobile Crane,Generator,MEWP">
-<div>Jet Washed / Cleaned</div>
-<div class="btn-group">
-<button type="button" class="status-btn ok" onclick="setCheck(this,'OK')">OK</button>
-<button type="button" class="status-btn defect" onclick="setCheck(this,'Defect')">Defect</button>
-<input type="hidden" name="jetWashedCleaned">
-</div>
-</div>
-
-</div>
+<div id="checkList" class="check-list"></div>
 </div>
 
 <div class="card">
@@ -648,6 +404,20 @@ Inspection Submitted Successfully ✔
 </div>
 
 <script>
+const ALL_ASSIGNED_PLANTS = [
+  "Mini Digger",
+  "Hitachi 01",
+  "Hitachi 02",
+  "Dumper",
+  "Roller",
+  "Telehandler",
+  "ADT",
+  "Loading Shovel",
+  "Mobile Crane",
+  "Generator",
+  "MEWP"
+];
+
 const operatorPlantMap = {
   "Christian Evans": ["Dumper", "Roller"],
   "Guy Millichip": ["Mobile Crane"],
@@ -672,16 +442,48 @@ const plantImages = {
   "MEWP": "mewp.jpg"
 };
 
+const checkDefinitions = [
+  { label: "Fluid Leaks", name: "fluidLeaks", plants: ["Mini Digger","Hitachi 01","Hitachi 02","Dumper","Roller","Telehandler","ADT","Loading Shovel","Mobile Crane","Generator","MEWP"] },
+  { label: "Engine Oil", name: "engineOil", plants: ["Mini Digger","Hitachi 01","Hitachi 02","Dumper","Roller","Telehandler","ADT","Loading Shovel","Mobile Crane","Generator"] },
+  { label: "Coolant", name: "coolant", plants: ["Mini Digger","Hitachi 01","Hitachi 02","Dumper","Roller","Telehandler","ADT","Loading Shovel","Mobile Crane"] },
+  { label: "Lights", name: "lights", plants: ["Mini Digger","Hitachi 01","Hitachi 02","Dumper","Roller","Telehandler","ADT","Loading Shovel","Mobile Crane","MEWP"] },
+  { label: "Horn / Alarm", name: "alarm", plants: ["Mini Digger","Hitachi 01","Hitachi 02","Dumper","Roller","Telehandler","ADT","Loading Shovel","Mobile Crane","MEWP"] },
+  { label: "Controls", name: "controls", plants: ["Mini Digger","Hitachi 01","Hitachi 02","Dumper","Roller","Telehandler","ADT","Loading Shovel","Mobile Crane","Generator","MEWP"] },
+  { label: "Hydraulic Hoses", name: "hydraulicHoses", plants: ["Mini Digger","Hitachi 01","Hitachi 02","Telehandler","Loading Shovel","Mobile Crane"] },
+  { label: "Tracks / Tyres", name: "tracks", plants: ["Mini Digger","Hitachi 01","Hitachi 02","Dumper","Roller","Telehandler","ADT","Loading Shovel"] },
+  { label: "Boom / Dipper / Bucket", name: "boomDipperBucket", plants: ["Mini Digger","Hitachi 01","Hitachi 02"] },
+  { label: "Body / Skip Condition", name: "bodySkipCondition", plants: ["Dumper","ADT"] },
+  { label: "Drum Condition", name: "drumCondition", plants: ["Roller"] },
+  { label: "Water Spray System", name: "waterSpraySystem", plants: ["Roller"] },
+  { label: "Forks / Carriage", name: "forksCarriage", plants: ["Telehandler"] },
+  { label: "Bucket / Linkage", name: "bucketLinkage", plants: ["Loading Shovel"] },
+  { label: "Hook / Chains / Lifting Gear", name: "hookChainsLiftingGear", plants: ["Mobile Crane"] },
+  { label: "Outriggers", name: "outriggers", plants: ["Mobile Crane"] },
+  { label: "Fuel Level / Fuel Leaks", name: "generatorFuelLeaks", plants: ["Generator"] },
+  { label: "Sockets / Outlets", name: "generatorSockets", plants: ["Generator"] },
+  { label: "Cables / Leads", name: "generatorCables", plants: ["Generator"] },
+  { label: "Emergency Stop", name: "generatorEmergencyStop", plants: ["Generator"] },
+  { label: "Tyres / Wheels", name: "mewpTyres", plants: ["MEWP"] },
+  { label: "MEWP Hydraulic Hoses", name: "mewpHydraulicHoses", plants: ["MEWP"] },
+  { label: "Guard Rails / Gate", name: "mewpGuardRailsGate", plants: ["MEWP"] },
+  { label: "Emergency Lowering Controls", name: "mewpEmergencyLowering", plants: ["MEWP"] },
+  { label: "Platform Controls", name: "mewpPlatformControls", plants: ["MEWP"] },
+  { label: "Tilt Alarm / Safety Devices", name: "mewpTiltAlarm", plants: ["MEWP"] },
+  { label: "Machines Greased", name: "machinesGreased", plants: ALL_ASSIGNED_PLANTS },
+  { label: "Jet Washed / Cleaned", name: "jetWashedCleaned", plants: ALL_ASSIGNED_PLANTS }
+];
+
 const operatorSelect = document.getElementById("operatorSelect");
 const plantType = document.getElementById("plantType");
 const form = document.getElementById("inspectionForm");
 const popup = document.getElementById("successPopup");
 const submitBtn = document.getElementById("submitBtn");
-const checkItems = document.querySelectorAll(".check-item");
 const progressText = document.getElementById("progressText");
 const progressFill = document.getElementById("progressFill");
-const siteDropdown = document.getElementById("siteDropdown");
 const defectNotes = document.getElementById("defectNotes");
+const checkList = document.getElementById("checkList");
+
+buildChecks();
 
 operatorSelect.addEventListener("change", function () {
   const selectedOperator = this.value;
@@ -697,6 +499,33 @@ plantType.addEventListener("change", function () {
   updateVisibleChecks(selectedPlant);
   updateProgress();
 });
+
+function buildChecks() {
+  checkList.innerHTML = "";
+
+  checkDefinitions.forEach(check => {
+    const item = document.createElement("div");
+    item.className = "check-item hidden-check";
+    item.dataset.plants = check.plants.join(",");
+
+    item.innerHTML = `
+      <div>${check.label}</div>
+      <div class="btn-group">
+        <button type="button" class="status-btn ok">OK</button>
+        <button type="button" class="status-btn defect">Defect</button>
+        <input type="hidden" name="${check.name}">
+      </div>
+    `;
+
+    const okBtn = item.querySelector(".ok");
+    const defectBtn = item.querySelector(".defect");
+
+    okBtn.addEventListener("click", () => setCheck(okBtn, "OK"));
+    defectBtn.addEventListener("click", () => setCheck(defectBtn, "Defect"));
+
+    checkList.appendChild(item);
+  });
+}
 
 function populatePlantOptions(operatorName) {
   plantType.innerHTML = "";
@@ -722,8 +551,12 @@ function populatePlantOptions(operatorName) {
   });
 }
 
+function getCheckItems() {
+  return document.querySelectorAll(".check-item");
+}
+
 function updateVisibleChecks(selectedPlant) {
-  checkItems.forEach(item => {
+  getCheckItems().forEach(item => {
     const plants = item.dataset.plants ? item.dataset.plants.split(",") : [];
     const hiddenInput = item.querySelector("input[type='hidden']");
     const buttons = item.querySelectorAll("button");
@@ -746,7 +579,7 @@ function updateVisibleChecks(selectedPlant) {
 }
 
 function resetChecksAndProgress() {
-  checkItems.forEach(item => {
+  getCheckItems().forEach(item => {
     item.classList.add("hidden-check");
     item.classList.remove("defect-selected");
 
@@ -795,7 +628,7 @@ function setCheck(btn, value) {
   if (value === "Defect") {
     checkItem.classList.add("defect-selected");
     triggerDefectFeedback();
-    alert("⚠ DEFECT RECORDED\n\nPlease report this to site management.");
+    alert("⚠ DEFECT RECORDED\n\nPlease Write On The White Board");
   } else {
     checkItem.classList.remove("defect-selected");
   }
@@ -808,11 +641,6 @@ form.addEventListener("submit", async function (e) {
 
   if (operatorSelect.value === "") {
     alert("⚠ Please select an operator before submitting.");
-    return;
-  }
-
-  if (siteDropdown.value === "") {
-    alert("⚠ Please select a site before submitting.");
     return;
   }
 
@@ -850,13 +678,14 @@ form.addEventListener("submit", async function (e) {
     const formData = new FormData();
 
     formData.append("operator", form.querySelector('[name="operator"]').value);
-    formData.append("site", form.querySelector('[name="siteLocation"]').value);
+    formData.append("site", "MPTT");
+    formData.append("siteLocation", "MPTT");
     formData.append("plantType", form.querySelector('[name="plantType"]').value);
     formData.append("machineId", form.querySelector('[name="machineID"]').value);
     formData.append("notes", form.querySelector('[name="defectNotes"]').value);
 
     const checks = visibleCheckItems.map(item => {
-      const checkName = item.querySelector("div").textContent.trim();
+      const checkName = item.querySelector(":scope > div:first-child").textContent.trim();
       const result = item.querySelector('input[type="hidden"]').value.trim();
 
       return {
@@ -895,27 +724,13 @@ form.addEventListener("submit", async function (e) {
       plantType.disabled = true;
       plantType.innerHTML = '<option value="">Select Operator First</option>';
 
-      document.querySelectorAll(".btn-group button").forEach(b => {
-        b.style.opacity = 1;
-      });
-
-      document.querySelectorAll("input[type='hidden']").forEach(i => {
-        i.value = "";
-      });
-
-      document.querySelectorAll(".check-item").forEach(item => {
-        item.classList.add("hidden-check");
-        item.classList.remove("defect-selected");
-      });
-
       document.documentElement.style.setProperty("--bgImage",'url("excavator.jpg")');
+      defectNotes.value = "";
 
-      siteDropdown.value = "MPTT";
+      resetChecksAndProgress();
 
       submitBtn.disabled = false;
       submitBtn.textContent = "Complete Inspection";
-
-      updateProgress();
     }, 1800);
 
   } catch (error) {
